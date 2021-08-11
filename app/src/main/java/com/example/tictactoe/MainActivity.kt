@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(view: View?) {
-        when(view?.id) {
+    override fun onClick(view: View) {
+        when(view.id) {
             R.id.button1 -> {
                 updateValue(row = 0, col = 0, player = PLAYER)
             }
