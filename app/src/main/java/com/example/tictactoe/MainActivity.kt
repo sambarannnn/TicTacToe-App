@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var PLAYER: Boolean = true
+    private var PLAYER: Boolean = true
     private var TURN_COUNT = 0
-    var boardStatus = Array(3){IntArray(3)}
-    lateinit var board: Array<Array<Button>>
+    var boardStatus = Array(3){Array(3){-1}}
+
+    //{IntArray(3)}
+    private lateinit var board: Array<Array<Button>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //to force disallow dark theme
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun initializeBoardStatus() {
         for(i in 0..2) {
             for(j in 0..2) {
-                boardStatus[i][j] = -1
+//                boardStatus[i][j] = -1
                 board[i][j].isEnabled = true
                 board[i][j].text = ""
             }
