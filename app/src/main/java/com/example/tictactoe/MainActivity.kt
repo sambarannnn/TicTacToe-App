@@ -1,6 +1,8 @@
 package com.example.tictactoe
 
 import android.content.ContentValues.TAG
+import android.graphics.Color
+import android.graphics.Color.colorToHSV
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -47,9 +49,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun initializeBoardStatus() {
         for(i in 0..2) {
             for(j in 0..2) {
-//                boardStatus[i][j] = -1
+                boardStatus[i][j] = -1
                 board[i][j].isEnabled = true
                 board[i][j].text = ""
+                board[i][j].setBackgroundColor(Color.rgb(42, 42, 42))
+                board[i][j].setTextColor(Color.rgb(3, 218, 197))
             }
         }
     }
@@ -111,6 +115,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         board[row][col].apply {
             isEnabled = false
             setText(text)
+            setBackgroundColor(Color.DKGRAY)
         }
         boardStatus[row][col] = value
 
@@ -122,9 +127,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if(boardStatus[i][0] == boardStatus[i][1] && boardStatus[i][0] == boardStatus[i][2]) {
                 if(boardStatus[i][0] == 1) {
                     updateDisplay("PLAYER X IS WINNER")
+                    board[i][0].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[i][1].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[i][2].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
                     break
                 } else if(boardStatus[i][0] == 0) {
                     updateDisplay("PLAYER O IS WINNER")
+                    board[i][0].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[i][1].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[i][2].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
                     break
                 }
             }
@@ -134,9 +163,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if(boardStatus[0][i] == boardStatus[1][i] && boardStatus[0][i] == boardStatus[2][i]) {
                 if(boardStatus[0][i] == 1) {
                     updateDisplay("PLAYER X IS WINNER")
+                    board[0][i].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[1][i].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[2][i].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
                     break
                 } else if(boardStatus[0][i] == 0) {
                     updateDisplay("PLAYER O IS WINNER")
+                    board[0][i].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[1][i].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
+                    board[2][i].apply{
+                        setBackgroundColor(Color.rgb(1, 135, 134))
+                        setTextColor(Color.WHITE)
+                    }
                     break
                 }
             }
@@ -145,15 +198,65 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if(boardStatus[1][1] == boardStatus[0][0] && boardStatus[1][1] == boardStatus[2][2]) {
             if(boardStatus[1][1] == 1) {
                 updateDisplay("PLAYER X IS WINNER")
+                board[0][0].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[1][1].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[2][2].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
             } else if(boardStatus[1][1] == 0) {
                 updateDisplay("PLAYER O IS WINNER")
+                board[0][0].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[1][1].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[2][2].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
             }
+
         } else if(boardStatus[1][1] == boardStatus[0][2] && boardStatus[1][1] == boardStatus[2][0]) {
             if(boardStatus[1][1] == 1) {
                 updateDisplay("PLAYER X IS WINNER")
+                board[0][2].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[1][1].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[2][0].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
             } else if(boardStatus[1][1] == 0) {
                 updateDisplay("PLAYER O IS WINNER")
+                board[0][2].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[1][1].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
+                board[2][0].apply{
+                    setBackgroundColor(Color.rgb(1, 135, 134))
+                    setTextColor(Color.WHITE)
+                }
             }
+
         }
 
     }
